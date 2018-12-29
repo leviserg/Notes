@@ -1,3 +1,7 @@
-select * from `devices` join(`protocols`, `devices.protocol`=`protocols._id`) where (`protocols.name` like %val%)
+select * from `devices` join(`protocols`, `devices.protocol`=`protocols._id`) where (`protocols.name` like %val%);
+
+db.devicesjoin(protocols, devices.protocol=protocols._id) .find({
+	"$where": "this.protocols.name  == this. %val%"
+});
 
 https://www.site24x7.com/tools/sql-to-mongodb.html
